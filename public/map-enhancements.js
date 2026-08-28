@@ -35,10 +35,8 @@
   }
 
   function showTeacher(teacher) {
-    const currentClass = teacher.지금수업 && teacher.지금수업.학급;
-    const currentSubject = teacher.지금수업 && teacher.지금수업.과목;
     const office = teacher.교무실;
-    const mapTarget = currentClass || office;
+    const mapTarget = office;
 
     document.querySelector('#teacherName').textContent = `${teacher.이름} 선생님`;
     document.querySelector('#teacherSubjects').textContent = teacher.과목?.length
@@ -46,17 +44,10 @@
       : '담당 과목 정보 없음';
     document.querySelector('#teacherOffice').textContent = office || '교무실 위치 등록 필요';
 
-    if (currentClass) {
-      document.querySelector('#teacherWhere').textContent =
-        `${currentClass} · ${currentSubject || '수업 중'}`;
+    if (office) {
       document.querySelector('#teacherNote').textContent =
-        '현재 수업 시간이라 수업 중인 교실을 지도에 표시했습니다. 수업이 끝나면 등록된 소속 교무실을 안내합니다.';
-    } else if (office) {
-      document.querySelector('#teacherWhere').textContent = office;
-      document.querySelector('#teacherNote').textContent =
-        '현재 수업 중이 아니어서 평소 근무하는 교무실을 지도에 표시했습니다.';
+        '평소 근무하는 교무실을 지도에 표시했습니다.';
     } else {
-      document.querySelector('#teacherWhere').textContent = '현재 수업 없음';
       document.querySelector('#teacherNote').textContent =
         '담당 과목은 시간표에서 확인했지만 소속 교무실 정보는 아직 등록되지 않았습니다.';
     }
