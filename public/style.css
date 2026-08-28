@@ -218,3 +218,99 @@ table.tt td.fx .sj{color:var(--ink-2)}
 .meal .dish sup{color:var(--sky-600);font-size:9.5px;margin-left:3px;font-weight:700}
 .meal .legend{margin-top:10px;font-size:11.5px;color:var(--muted);font-weight:700;line-height:1.6}
 .meal .none{color:var(--muted);font-weight:700;font-size:13.5px;padding:4px 0}
+
+/* 공항고 한눈에 3D 안내도 카드 */
+.map-feature{
+  position:relative;
+  display:grid;
+  grid-template-columns:52px 1fr auto;
+  align-items:center;
+  gap:13px;
+  min-height:104px;
+  overflow:hidden;
+  text-decoration:none;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255,255,255,.9) 0,
+      rgba(255,255,255,0) 38%
+    ),
+    linear-gradient(
+      135deg,
+      #e8f3fe 0%,
+      #a8d3f9 100%
+    );
+  border-color:#a8d3f9;
+  box-shadow:var(--shadow-m);
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.map-feature:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 5px 12px rgba(21,36,48,.08),
+    0 15px 34px rgba(20,88,143,.16);
+}
+
+.map-feature:active{
+  transform:scale(.99);
+}
+
+.map-feature-icon{
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  border-radius:16px;
+  background:rgba(255,255,255,.75);
+  color:var(--sky-700);
+  font-family:var(--title);
+  font-size:20px;
+  box-shadow:0 4px 14px rgba(20,88,143,.12);
+}
+
+.map-feature-text{
+  min-width:0;
+}
+
+.map-feature-text h2{
+  margin:0 0 3px;
+  color:var(--ink);
+  font-size:18px;
+}
+
+.map-feature-text p{
+  margin:0;
+  color:var(--ink-2);
+  font-size:12.5px;
+  font-weight:700;
+  line-height:1.4;
+}
+
+.map-feature-button{
+  color:var(--sky-700);
+  font-size:12.5px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* 작은 휴대전화 화면 */
+@media (max-width:520px){
+  .map-feature{
+    grid-template-columns:48px 1fr;
+  }
+
+  .map-feature-icon{
+    width:48px;
+    height:48px;
+  }
+
+  .map-feature-button{
+    grid-column:2;
+    margin-top:-5px;
+  }
+}
