@@ -33,24 +33,54 @@ function apiKey() {
 }
 
 async function getJson(path, params) {
-  const q = new URLSearchParams({ Type: 'json', pIndex: '1', pSize: '100', ...params });
-  const key = apiKey();
-  if (key) q.set('KEY', key);
+  const q = new URLSearchParams();
 
+  const key = apiKey();
+  if (key) q.set("KEY", key);
+
+  q.set("Type", "json");
+  q.set("pIndex", "1");
+  q.set("pSize", "100");
+
+  for (const [name, value] of Object.entries(params || {})) {
+    if (value !== undefined && value !== null && value !== "") {
+      q.set(name, String(value));
+    }
+  }
+
+  const url = `${HOST}/${path}?${q.toString()}`;
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 8000);
+  const timer = setTimeout(() => ctrl.abort(), 12000);
+
   try {
-    const r = await fetch(`${HOST}/${path}?${q}`, {
+    const response = await fetch(url, {
       signal: ctrl.signal,
-      headers: { Accept: 'application/json' },
+      cache: "no-store",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "User-Agent": "Mozilla/5.0 (compatible; AllAboutGonghang/1.0)",
+      },
     });
-    if (!r.ok) throw new Error(`나이스 응답 오류 (${r.status})`);
-    return await r.json();
+
+    const text = await response.text();
+
+    if (!response.ok) {
+      throw new Error(
+        `나이스 응답 오류 (${response.status})${
+          text ? `: ${text.slice(0, 200)}` : ""
+        }`
+      );
+    }
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      throw new Error(`나이스 응답 해석 오류: ${text.slice(0, 200)}`);
+    }
   } finally {
     clearTimeout(timer);
   }
 }
-
 /** 나이스 응답에서 결과 코드와 row 목록을 꺼낸다 */
 function unwrap(json, name) {
   // 데이터가 없을 때는 최상위에 RESULT 만 온다
