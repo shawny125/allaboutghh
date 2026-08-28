@@ -11,6 +11,7 @@
 
 const { getData, currentPeriodInfo, config } = require('./_lib');
 const { sendJson, handler } = require('./_http');
+const teacherLocations = require('../data/teacher-locations.json').map || {};
 
 function groupByTeacher(lessons) {
   const map = new Map();
@@ -40,6 +41,22 @@ module.exports = handler(async (req, res) => {
   const now = currentPeriodInfo(data.periods);
   const weekdays = config.weekdays || ['월', '화', '수', '목', '금'];
   const teachers = groupByTeacher(data.lessons);
+
+  // 좌석배치도에는 있지만 수업이 없는 교직원도 이름으로 찾을 수 있게 포함한다.
+  // 위치 파일에는 이름과 근무 공간만 있으며 내선번호와 업무명은 저장하지 않는다.
+  if (query.includeLocations === '1') {
+    Object.keys(teacherLocations).forEach((name) => {
+      if (!teachers.has(name)) {
+        teachers.set(name, {
+          이름: name,
+          마스킹명: null,
+          실명확인: true,
+          과목: new Set(),
+          수업: [],
+        });
+      }
+    });
+  }
 
   // 같은 슬롯에 여러 건이 잡히면 전부 돌려준다.
   // 실제 교사는 한 시간에 한 곳에만 있으므로, 2건 이상이면
@@ -91,6 +108,7 @@ module.exports = handler(async (req, res) => {
         마스킹명: t.마스킹명,
         실명확인: t.실명확인,
         과목: [...t.과목],
+        교무실: teacherLocations[t.이름] || null,
         주간수업수: t.수업.length,
       },
       최대교시: maxPeriod,
@@ -120,6 +138,7 @@ module.exports = handler(async (req, res) => {
         마스킹명: t.마스킹명,
         실명확인: t.실명확인,
         과목: [...t.과목],
+        교무실: teacherLocations[t.이름] || null,
         주간수업수: t.수업.length,
         상태: !now.isSchoolDay ? '휴일'
           : now.status === 'in' ? (cur.length ? '수업중' : '수업없음')
