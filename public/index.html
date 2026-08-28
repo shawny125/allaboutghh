@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#54a8f2">
+<title>ALL ABOUT : 공항고</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1 class="brand">ALL ABOUT<span class="colon">:</span><span class="school">공항고</span></h1>
+    <p class="slogan">공항고의 오늘을 한눈에</p>
+    <p class="sub" id="schoolLine">시간표 불러오는 중…</p>
+  </div>
+</header>
+
+<div id="banner" class="banner" hidden></div>
+
+<nav class="tabs wrap" role="tablist">
+  <button class="tab is-on" data-tab="now" role="tab">지금</button>
+  <button class="tab" data-tab="class" role="tab">시간표</button>
+  <button class="tab" data-tab="teacher" role="tab">교사</button>
+</nav>
+
+<main class="wrap">
+
+  <!-- ---------------------------------------------------------- 지금 -->
+  <section id="panel-now" class="panel">
+    <div class="c tint now" id="nowCard">
+      <div class="now-lab" id="nowLabel">—</div>
+      <div class="now-big" id="nowBig">—</div>
+      <div class="now-sub" id="nowSub"></div>
+      <div class="now-time" id="nowTime"></div>
+    </div>
+
+    <div class="c">
+      <div class="c-h">
+        <h2>내 반 오늘 수업</h2>
+        <button class="link" id="pickClass">반 바꾸기</button>
+      </div>
+      <div id="todayList" class="list">반을 선택하면 오늘 시간표가 표시됩니다.</div>
+    </div>
+
+    <div class="c">
+      <div class="c-h">
+        <h2>오늘 급식</h2>
+        <span class="meta" id="mealDate"></span>
+      </div>
+      <div id="mealBox" class="meal"><p class="spin">급식 정보를 불러오는 중…</p></div>
+    </div>
+
+    <div class="c">
+      <h2>바로가기</h2>
+      <div id="linkList" class="links"></div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------ 학급 시간표 -->
+  <section id="panel-class" class="panel" hidden>
+    <div class="c">
+      <div class="picker">
+        <label>학년
+          <select id="gradeSel"></select>
+        </label>
+        <label>반
+          <select id="classSel"></select>
+        </label>
+      </div>
+      <p class="hint">선택한 반은 이 기기에 저장돼서 다음에 열면 바로 나옵니다.</p>
+    </div>
+
+    <div class="c" id="electiveCard" hidden>
+      <div class="c-h">
+        <h2>내 선택과목</h2>
+        <button class="link" id="clearPick">지우기</button>
+      </div>
+      <div id="electivePicker" class="epick"></div>
+      <p class="hint">
+        고르면 이동수업 칸에 과목과 <b>실제 강의실</b>이 표시됩니다.
+        컴시간에 찍힌 강의실이 아니라 실제로 수업하는 강의실입니다. 이 기기에만 저장됩니다.
+      </p>
+    </div>
+    <div class="c table-card">
+      <div class="table-scroll"><table id="classTable" class="tt"></table></div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- 교사 -->
+  <section id="panel-teacher" class="panel" hidden>
+    <div class="c">
+      <input type="search" id="teacherSearch" placeholder="교사 이름 또는 과목 검색" autocomplete="off">
+      <div class="chips">
+        <button class="chip is-on" data-filter="all">전체</button>
+        <button class="chip" data-filter="teaching">지금 수업 중</button>
+        <button class="chip" data-filter="free">지금 수업 없음</button>
+      </div>
+      <p class="hint" id="teacherHint"></p>
+    </div>
+    <div id="teacherList" class="tlist"></div>
+  </section>
+
+</main>
+
+<div id="sheet" class="sheet" hidden>
+  <div class="sheet-inner c">
+    <div class="c-h">
+      <h2 id="sheetTitle">교사 시간표</h2>
+      <button class="link" id="sheetClose">닫기</button>
+    </div>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+
+<footer class="wrap foot">
+  <p id="sourceLine">시간표 출처: 컴시간</p>
+  <p id="fetchedLine"></p>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

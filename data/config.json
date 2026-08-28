@@ -1,0 +1,23 @@
+{
+  "schoolName": "인천공항고",
+  "schoolCodeHint": 67338,
+  "maxGrade": 3,
+  "cacheMinutes": 20,
+  "periodMinutes": 50,
+  "periodTimesOverride": null,
+  "weekdays": [
+    "월",
+    "화",
+    "수",
+    "목",
+    "금"
+  ],
+  "neis": {
+    "시도교육청코드": "E10",
+    "학교명": "인천공항고등학교",
+    "학교코드": null,
+    "인증키": "",
+    "캐시분": 180,
+    "_안내": "인증키는 open.neis.go.kr 에서 무료 발급. 환경변수 NEIS_KEY 가 있으면 그쪽이 우선입니다. 학교코드를 비워두면 학교명으로 자동 조회합니다."
+  }
+}

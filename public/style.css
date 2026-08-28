@@ -1,0 +1,220 @@
+/* ─────────────────────────────────────────────────────────────
+   ALL ABOUT : 공항고
+   제목 — 강원교육튼튼체 / 본문 — 강원교육모두체
+   강원도교육청 무료 배포 폰트 (상업적 이용 허용).
+   한글 11,172자 전체를 담아 프로젝트 안에 직접 넣었습니다. CDN 의존 없음.
+   ───────────────────────────────────────────────────────────── */
+@font-face{
+  font-family:'GangwonEduPower'; font-weight:400; font-style:normal; font-display:swap;
+  src:url('./fonts/GangwonEduPower.woff') format('woff');
+}
+@font-face{
+  font-family:'GangwonEduAll'; font-weight:300; font-style:normal; font-display:swap;
+  src:url('./fonts/GangwonEduAll-Light.woff') format('woff');
+}
+@font-face{
+  font-family:'GangwonEduAll'; font-weight:700; font-style:normal; font-display:swap;
+  src:url('./fonts/GangwonEduAll-Bold.woff') format('woff');
+}
+
+:root{
+  --sky-50:#f5faff;
+  --sky-100:#e8f3fe;
+  --sky-200:#cbe4fc;
+  --sky-300:#54a8f2;     /* 메인 */
+  --sky-500:#2f8ce0;
+  --sky-600:#1f76c4;
+  --sky-700:#14588f;     /* 흰 배경 위 글자 */
+  --on-sky:#0b2f4a;      /* 메인색 위 글자 */
+  --ink:#152430;
+  --ink-2:#3d566a;
+  --muted:#65809a;
+  --line:#e4eef5;
+  --white:#fff;
+  --shadow-s:0 1px 2px rgba(21,36,48,.04), 0 2px 8px rgba(20,88,143,.07);
+  --shadow-m:0 2px 6px rgba(21,36,48,.05), 0 12px 32px rgba(20,88,143,.11);
+  --r:18px;
+  --title:'GangwonEduPower','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --body:'GangwonEduAll','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--sky-50); color:var(--ink);
+  font-family:var(--body); font-weight:300; font-size:15px; line-height:1.65;
+  -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased;
+  padding-bottom:44px;
+}
+h1,h2,h3{font-family:var(--title);font-weight:400;letter-spacing:-.01em}
+[hidden]{display:none !important}
+
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+/* ───────────────────────── 상단 ───────────────────────── */
+.top{
+  text-align:center;
+  background:
+    radial-gradient(700px 280px at 50% -60%, var(--sky-200) 0%, rgba(232,243,254,0) 70%),
+    linear-gradient(180deg,#fff 0%, var(--sky-50) 100%);
+  border-bottom:1px solid var(--line);
+  padding:28px 0 22px;
+}
+.brand{margin:0;font-size:29px;line-height:1.2;color:var(--ink);
+  -webkit-text-stroke:.6px currentColor; paint-order:stroke fill}
+.brand .colon{color:var(--sky-300);margin:0 .16em}
+.brand .school{color:var(--sky-700)}
+.slogan{margin:5px 0 0;font-size:14px;color:var(--ink-2)}
+.top .sub{margin:9px 0 0;font-size:12.5px;color:var(--muted);font-weight:700}
+
+.banner{max-width:720px;margin:12px auto;padding:11px 15px;border-radius:12px;
+  background:#fdf4e3;color:#8a5a00;font-size:13.5px;font-weight:700;border:1px solid #f4e2bf}
+.banner.err{background:#fdecec;color:#a02020;border-color:#f6d2d2}
+
+/* ───────────────────────── 탭 ───────────────────────── */
+.tabs{display:flex;gap:6px;margin:16px auto 12px}
+.tab{flex:1;padding:9px 4px;border:1px solid var(--line);background:var(--white);color:var(--muted);
+  border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--body)}
+.tab.is-on{background:var(--sky-300);border-color:var(--sky-300);color:var(--on-sky)}
+
+/* ───────────────────────── 카드 ───────────────────────── */
+.c{background:var(--white);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;margin-bottom:12px;box-shadow:var(--shadow-s)}
+.c.tint{background:linear-gradient(180deg,var(--sky-100),#fff);border-color:var(--sky-200)}
+.c h2{margin:0 0 10px;font-size:14px;color:var(--ink-2)}
+.c-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.c-h h2{margin:0}
+.link{background:none;border:0;color:var(--sky-700);font-size:12.5px;font-weight:700;
+  cursor:pointer;padding:4px 2px;font-family:var(--body)}
+.hint{margin:8px 0 0;font-size:12.5px;color:var(--muted);font-weight:700}
+
+/* ───────────────────────── 지금 ───────────────────────── */
+.now{text-align:center;padding:24px 16px 22px}
+.now-lab{font-size:13px;color:var(--sky-700);font-weight:700}
+.now-big{font-family:var(--title);font-size:42px;line-height:1.08;margin:6px 0;color:var(--ink)}
+.now-sub{font-size:14.5px;color:var(--ink);font-weight:700;min-height:22px}
+.now-time{font-size:13px;color:var(--muted);font-weight:700;margin-top:6px}
+
+/* 오늘 수업 목록 */
+.list{font-size:14px}
+.list .row{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid var(--line)}
+.list .row:last-child{border-bottom:0}
+.list .row.on{background:var(--sky-100);margin:0 -10px;padding:9px 10px;border-radius:12px;border-bottom:0}
+.list .no{width:22px;flex:none;color:var(--muted);font-size:12.5px;font-weight:700}
+.list .sj{font-weight:700;color:var(--ink)}
+.list .tc{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:700}
+
+
+/* ───────────────────────── 선택 ───────────────────────── */
+.picker{display:flex;gap:10px}
+.picker label{flex:1;font-size:12.5px;color:var(--muted);font-weight:700}
+select,input[type=search]{width:100%;margin-top:5px;padding:10px 11px;border:1px solid var(--line);
+  border-radius:11px;background:#fafdff;color:var(--ink);font-size:15px;font-family:var(--body);font-weight:700}
+input[type=search]{margin-top:0}
+select:focus,input[type=search]:focus{outline:2px solid var(--sky-300);outline-offset:1px;border-color:var(--sky-300)}
+
+/* ───────────────────────── 시간표 ───────────────────────── */
+.table-card{padding:10px}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tt{border-collapse:separate;border-spacing:3px;width:100%;table-layout:fixed;font-size:11.5px}
+table.tt th,table.tt td{padding:6px 3px;text-align:center;border-radius:9px;
+  word-break:keep-all;overflow-wrap:anywhere;vertical-align:middle}
+table.tt th{background:var(--sky-100);color:var(--sky-700);font-family:var(--title);font-weight:400;font-size:11.5px}
+table.tt td{background:#fafdff;border:1px solid var(--line);color:var(--ink)}
+table.tt .pn{background:transparent;border:0;color:var(--muted);width:22px;font-weight:700}
+table.tt td .sj{display:block;font-weight:700}
+table.tt td .tc{display:block;color:var(--muted);font-size:10.5px;margin-top:1px;font-weight:700;line-height:1.3}
+table.tt td.today{background:#f2faff}
+table.tt th.today{background:var(--sky-200)}
+table.tt td.now{background:var(--sky-200);border-color:var(--sky-500)}
+table.tt td.empty{color:var(--muted);background:#fff}
+table.tt td.clash{background:#fdf4e3;border-color:#e0b96a}
+
+/* ───────────────────────── 교사 ───────────────────────── */
+.chips{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--white);color:var(--muted);border-radius:99px;
+  padding:6px 13px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--body)}
+.chip.is-on{background:var(--sky-200);border-color:var(--sky-300);color:var(--on-sky)}
+
+.tlist{display:grid;gap:8px}
+.tcard{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:12px 14px;
+  display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:var(--shadow-s);
+  text-align:left;width:100%;font-family:var(--body);color:inherit}
+.tcard .av{width:38px;height:38px;border-radius:50%;flex:none;
+  background:linear-gradient(160deg,var(--sky-200),var(--sky-300));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--title);font-size:15px;color:var(--on-sky)}
+.tcard .nm{font-weight:700;font-size:15px;color:var(--ink)}
+.tcard .sj{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:1px}
+.tcard .mask{font-size:11px;color:#8a5a00;font-weight:700;margin-top:2px}
+.tcard .st{margin-left:auto;text-align:right;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700}
+.pill.on{background:var(--sky-200);color:var(--on-sky)}
+.pill.off{background:#eef3f7;color:var(--muted)}
+.tcard .where{font-size:11.5px;color:var(--muted);font-weight:700;margin-top:3px}
+
+/* ───────────────────────── 시트 ───────────────────────── */
+.sheet{position:fixed;inset:0;background:rgba(9,30,45,.42);display:flex;align-items:flex-end;
+  justify-content:center;z-index:50}
+.sheet[hidden]{display:none}
+.sheet-inner{width:100%;max-width:720px;max-height:86vh;overflow-y:auto;margin:0;
+  border-radius:20px 20px 0 0}
+@media(min-width:600px){ .sheet{align-items:center;padding:20px} .sheet-inner{border-radius:20px} }
+.clash-note{margin:6px 0 10px;padding:10px 12px;border-radius:11px;background:#fdf4e3;
+  color:#8a5a00;font-size:12.5px;font-weight:700;line-height:1.5}
+
+.foot{margin-top:22px;color:var(--muted);font-size:12px;text-align:center;font-weight:700}
+.foot p{margin:2px 0}
+.spin{color:var(--muted);font-size:13.5px;font-weight:700;padding:6px 0}
+
+/* ───────────────────────── 이동수업 ───────────────────────── */
+.epick{display:grid;gap:8px}
+.epick .erow{display:flex;align-items:center;gap:10px}
+.epick .blk{width:30px;height:30px;flex:none;border-radius:9px;background:var(--sky-200);
+  color:var(--on-sky);font-family:var(--title);font-size:14px;display:flex;align-items:center;justify-content:center}
+.epick select{margin-top:0}
+
+.mv{color:var(--sky-700)}
+.list .row.mv .sj{color:var(--sky-700)}
+.list .row .rm{margin-left:auto;font-size:12px;color:var(--sky-700);font-weight:700}
+table.tt td.mv{background:var(--sky-100);border-color:var(--sky-200)}
+table.tt td.mv .sj{color:var(--sky-700)}
+table.tt td .rm{display:block;font-size:10px;color:var(--sky-600);font-weight:700;margin-top:1px}
+.badge-mv{display:inline-block;background:var(--sky-200);color:var(--on-sky);border-radius:7px;
+  padding:1px 6px;font-size:10.5px;font-weight:700}
+
+/* 창의적 체험활동처럼 고정된 시간 */
+.list .row.fx .sj{color:var(--ink-2)}
+table.tt td.fx{background:#f3f6f9;border-color:#e2e8ee}
+table.tt td.fx .sj{color:var(--ink-2)}
+
+/* ───────────────────────── 바로가기 ───────────────────────── */
+.links{display:grid;gap:8px}
+.lrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:#fafdff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;
+  font-family:var(--body);color:inherit;cursor:pointer;text-decoration:none}
+.lrow:hover{border-color:var(--sky-300);background:var(--sky-50)}
+.lrow .ic{width:36px;height:36px;flex:none;border-radius:11px;background:var(--sky-100);
+  display:flex;align-items:center;justify-content:center;color:var(--sky-700)}
+.lrow .ic svg{width:19px;height:19px;display:block}
+.lrow .tx{min-width:0;flex:1}
+.lrow .ti{font-weight:700;font-size:14.5px;color:var(--ink)}
+.lrow .de{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:1px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lrow .go{flex:none;color:var(--sky-600);font-size:13px;font-weight:700}
+.lrow.copied{border-color:var(--sky-500);background:var(--sky-100)}
+.lrow.copied .de{color:var(--sky-700)}
+.lrow.soon .ic{background:#f0f3f6;color:var(--muted)}
+
+/* ───────────────────────── 급식 ───────────────────────── */
+.meta{font-size:12px;color:var(--muted);font-weight:700}
+.meal .mgroup + .mgroup{margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}
+.meal .mhead{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.meal .mname{font-family:var(--title);font-size:15px;color:var(--sky-700)}
+.meal .mcal{font-size:11.5px;color:var(--muted);font-weight:700;margin-left:auto}
+.meal .dishes{display:flex;flex-wrap:wrap;gap:6px}
+.meal .dish{background:var(--sky-100);color:var(--ink);border-radius:9px;
+  padding:6px 10px;font-size:13px;font-weight:700;line-height:1.3}
+.meal .dish sup{color:var(--sky-600);font-size:9.5px;margin-left:3px;font-weight:700}
+.meal .legend{margin-top:10px;font-size:11.5px;color:var(--muted);font-weight:700;line-height:1.6}
+.meal .none{color:var(--muted);font-weight:700;font-size:13.5px;padding:4px 0}

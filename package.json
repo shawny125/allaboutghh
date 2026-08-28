@@ -1,0 +1,17 @@
+{
+  "name": "allabout-gonghang",
+  "version": "0.1.0",
+  "private": true,
+  "description": "올어바웃 인천공항고 - 컴시간 실시간 시간표 연동",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "comcigan-parser": "^1.0.0"
+  },
+  "scripts": {
+    "dev": "node tools/dev-server.mjs",
+    "map": "node tools/build-teacher-map.mjs"
+  }
+}
